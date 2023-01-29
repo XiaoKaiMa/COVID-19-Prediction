@@ -1,0 +1,13 @@
+name: prediction
+title: prediction
+username:
+account: 91sdty-xiaokai-ma
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 8157797
+bundleId: 6785431
+url: https://91sdty-xiaokai-ma.shinyapps.io/prediction/
+when: 1674955151.91133
+lastSyncTime: 1674955151.91135
+asMultiple: FALSE
+asStatic: FALSE

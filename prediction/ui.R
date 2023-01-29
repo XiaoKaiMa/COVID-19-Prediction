@@ -6,24 +6,24 @@ library(shinyBS)
 
 dashboardPage(
   title = "Interactive visualization of COVID19 case and death forecasts (Germany)",
-  dashboardHeader(title = "COVID19 - forecasts"),
+  dashboardHeader(title = "COVID19 - Prediction"),
   skin = "green",
   ## Sidebar content
   dashboardSidebar(
     sidebarMenu(
-      menuItem("Forecasts", tabName = "forecasts", icon = icon("area-chart")))
+      menuItem("Prediction", tabName = "Prediction", icon = icon("area-chart")))
   ),
   ## Body content
   dashboardBody(
     tabItems(
 
       # start tab:
-      tabItem(tabName = "forecasts",
+      tabItem(tabName = "Prediction",
               titlePanel("Predicting the death toll from covid-19 cases in Germany"),
               # input elements generated on server side:
               div(style="display:inline-block",
-                  radioButtons("select_stratification", "Show forecasts by:",
-                           choices = list("Forecast date" = "forecast_date"),
+                  radioButtons("select_stratification", "Show Prediction by:",
+                           choices = list("Prediction date" = "forecast_date"),
                            selected = "forecast_date", inline = TRUE)
                   ),
               
@@ -48,7 +48,7 @@ dashboardPage(
               br(),
               div(style="display:inline-block",
                   radioButtons("select_truths", "Select handling of truth data:",
-                                 choiceNames = c("Show original forecasts irrespective of used truth data", "Shift all forecasts to ECDC/RKI data"),
+                                 choiceNames = c("Show original Prediction irrespective of used truth data", "Shift all Prediction to ECDC/RKI data"),
                                  choiceValues = c("both", "ECDC"),
                                  selected = c("ECDC"), inline = TRUE)
                   ),

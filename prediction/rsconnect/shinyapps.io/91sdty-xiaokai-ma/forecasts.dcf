@@ -5,9 +5,9 @@ account: 91sdty-xiaokai-ma
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 8154454
-bundleId: 6783531
+bundleId: 6785422
 url: https://91sdty-xiaokai-ma.shinyapps.io/forecasts/
-when: 1674892635.87094
-lastSyncTime: 1674892635.87096
+when: 1674954791.4626
+lastSyncTime: 1674954791.46261
 asMultiple: FALSE
 asStatic: FALSE

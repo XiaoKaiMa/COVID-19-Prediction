@@ -23,14 +23,14 @@ Sys.setlocale(category = "LC_TIME", locale = "en_US.UTF8")
 
 # read in data set compiled specificaly for Shiny app:
 if(local){
-  forecasts_to_plot <- read.csv("../forecasts/data/forecasts_to_plot.csv",
+  forecasts_to_plot <- read.csv("../prediction/data/forecasts_to_plot.csv",
                                 stringsAsFactors = FALSE,
                                 colClasses = c("forecast_date" = "Date",
                                                "timezero" = "Date",
                                                "target_end_date" = "Date",
                                                "first_commit_date" = "Date"))
 }else{
-  forecasts_to_plot <- read.csv("../forecasts/data/forecasts_to_plot.csv",
+  forecasts_to_plot <- read.csv("../prediction/data/forecasts_to_plot.csv",
                                 stringsAsFactors = FALSE,
                                 colClasses = c("forecast_date" = "Date",
                                                "timezero" = "Date",
@@ -67,13 +67,13 @@ names(cols_models) <- models
 
 # get truth data:
 dat_truth <- list()
-dat_truth$JHU <- read.csv("../forecasts/data/truth_to_plot_jhu.csv",
+dat_truth$JHU <- read.csv("../prediction/data/truth_to_plot_jhu.csv",
                           colClasses = list("date" = "Date"))
 colnames(dat_truth$JHU) <- gsub("inc_", "inc ", colnames(dat_truth$JHU)) # for matching with targets
 colnames(dat_truth$JHU) <- gsub("cum_", "cum ", colnames(dat_truth$JHU)) # for matching with targets
 
 
-dat_truth$ECDC <- read.csv("../forecasts/data/truth_to_plot_ecdc.csv",
+dat_truth$ECDC <- read.csv("../prediction/data/truth_to_plot_ecdc.csv",
                            colClasses = list("date" = "Date"))
 colnames(dat_truth$ECDC) <- gsub("inc_", "inc ", colnames(dat_truth$ECDC)) # for matching with targets
 colnames(dat_truth$ECDC) <- gsub("cum_", "cum ", colnames(dat_truth$ECDC)) # for matching with targets
@@ -86,7 +86,7 @@ pch_empty <- c(2, 1)
 names(pch_full) <- names(pch_empty) <- truths
 
 # get data on which model uses which truth data:
-truth_data_used0 <- read.csv("../forecasts/data/truth_data_use.csv",
+truth_data_used0 <- read.csv("../prediction/data/truth_data_use.csv",
                              stringsAsFactors = FALSE)
 truth_data_used <- truth_data_used0$truth_data
 names(truth_data_used) <- truth_data_used0$model
@@ -212,7 +212,7 @@ shinyServer(function(input, output, session) {
   # input element to select forecast date:
   output$inp_select_date <- renderUI(
     if(input$select_stratification == "forecast_date" || is.null(input$select_stratification)){
-      selectInput("select_date", "Select forecast date:", choices = timezeros)
+      selectInput("select_date", "Select Prediction date:", choices = timezeros)
     }else{
       selectInput("select_horizon", "Select forecast horizon:",
                   choices = c("1 wk ahead", "2 wk ahead", "3 wk ahead", "4 wk ahead"))
